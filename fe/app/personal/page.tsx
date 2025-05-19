@@ -10,13 +10,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
-import { ArrowRight, CreditCard, Wallet, PiggyBank, DollarSign, BadgeCheck, ShieldCheck, CreditCard as CreditCardIcon, ArrowUpRight } from "lucide-react";
+  ArrowRight,
+  CreditCard,
+  Wallet,
+  PiggyBank,
+  DollarSign,
+  BadgeCheck,
+  ShieldCheck,
+  ArrowUpRight,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function PersonalBankingPage() {
@@ -54,7 +58,7 @@ export default function PersonalBankingPage() {
     {
       id: "creditcards",
       title: "Rewards Credit Cards",
-      icon: <CreditCardIcon className="h-5 w-5" />,
+      icon: <CreditCard className="h-5 w-5" />,
       description: "Earn rewards on everyday purchases with no annual fees.",
       features: [
         "Up to 5% cash back on select categories",
@@ -73,7 +77,7 @@ export default function PersonalBankingPage() {
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--chart-1)/0.2),transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--chart-2)/0.2),transparent_50%)]"></div>
-        
+
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <motion.div
@@ -88,7 +92,8 @@ export default function PersonalBankingPage() {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Experience personalized banking solutions that grow with you, from everyday checking to long-term financial planning.
+                Experience personalized banking solutions that grow with you,
+                from everyday checking to long-term financial planning.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="group">
@@ -114,7 +119,9 @@ export default function PersonalBankingPage() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Personal Banking Solutions</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Personal Banking Solutions
+              </h2>
               <p className="text-lg text-muted-foreground">
                 Find the right account to meet your financial needs and goals.
               </p>
@@ -124,13 +131,17 @@ export default function PersonalBankingPage() {
           <Tabs defaultValue="checking" className="max-w-4xl mx-auto">
             <TabsList className="grid grid-cols-3 mb-8">
               {accountTypes.map((account) => (
-                <TabsTrigger key={account.id} value={account.id} className="flex items-center gap-2">
+                <TabsTrigger
+                  key={account.id}
+                  value={account.id}
+                  className="flex items-center gap-2"
+                >
                   {account.icon}
                   <span className="hidden sm:inline">{account.title}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
-            
+
             {accountTypes.map((account) => (
               <TabsContent key={account.id} value={account.id}>
                 <motion.div
@@ -184,9 +195,12 @@ export default function PersonalBankingPage() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose BlueRock</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Why Choose BlueRock
+              </h2>
               <p className="text-lg text-muted-foreground">
-                We're dedicated to providing exceptional banking experiences with innovative solutions.
+                We're dedicated to providing exceptional banking experiences
+                with innovative solutions.
               </p>
             </motion.div>
           </div>
@@ -221,9 +235,12 @@ export default function PersonalBankingPage() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Financial Products</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Financial Products
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Explore our full range of personal banking products and services.
+                Explore our full range of personal banking products and
+                services.
               </p>
             </motion.div>
           </div>
@@ -233,10 +250,7 @@ export default function PersonalBankingPage() {
               title="Mortgages & Home Loans"
               href="/personal/loans"
             />
-            <ProductCard
-              title="Auto & Personal Loans"
-              href="/personal/loans"
-            />
+            <ProductCard title="Auto & Personal Loans" href="/personal/loans" />
             <ProductCard
               title="Investment Accounts"
               href="/personal/investments"
@@ -259,9 +273,12 @@ export default function PersonalBankingPage() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-4">Ready to Experience Better Banking?</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Ready to Experience Better Banking?
+              </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Open an account in minutes and start enjoying the benefits of BlueRock banking today.
+                Open an account in minutes and start enjoying the benefits of
+                BlueRock banking today.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="group">
@@ -280,9 +297,13 @@ export default function PersonalBankingPage() {
   );
 }
 
-function FeatureCard({ icon, title, description }: { 
-  icon: React.ReactNode; 
-  title: string; 
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
   description: string;
 }) {
   return (
@@ -318,8 +339,8 @@ function ProductCard({ title, href }: { title: string; href: string }) {
           <CardTitle className="text-lg">{title}</CardTitle>
         </CardHeader>
         <CardFooter>
-          <Link 
-            href={href} 
+          <Link
+            href={href}
             className="text-primary group-hover:underline flex items-center text-sm font-medium"
           >
             Learn More
@@ -330,3 +351,4 @@ function ProductCard({ title, href }: { title: string; href: string }) {
     </motion.div>
   );
 }
+
